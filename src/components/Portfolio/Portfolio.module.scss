@@ -1,0 +1,148 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/breakpoints' as *;
+
+.section {
+  padding: 4rem 0;
+  background: #ffffff;
+  overflow: hidden;
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  left: -150px;
+  top: -130px;
+  width: 520px;
+  height: 520px;
+  background: #f0f0ff;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto 2rem;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.statText {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.statText h2 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: #160a3d;
+  margin: 0;
+  line-height: 1;
+}
+
+.statText sup {
+  font-size: 1.5rem;
+  top: -1.2em;
+  position: relative;
+}
+
+.statText p {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #160a3d;
+  margin: 0;
+}
+
+.exploreBtn {
+  margin-left: auto;
+  background: #34d399;
+  color: #ffffff;
+  border: 0;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.marquee {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: max-content;
+  animation: scrollLeft 24s linear infinite;
+}
+
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+.logoCard {
+  width: 260px;
+  height: 95px;
+  background: #ffffff;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoCard img {
+  max-width: 82%;
+  max-height: 72%;
+  object-fit: contain;
+}
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .statText {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .statText h2 {
+    font-size: 3.25rem;
+  }
+
+  .statText p {
+    font-size: 1.5rem;
+  }
+
+  .exploreBtn {
+    margin-left: 0;
+  }
+
+  .logoCard {
+    width: 220px;
+    height: 85px;
+  }
+}

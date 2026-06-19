@@ -1,0 +1,124 @@
+export interface Service {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  color: string;
+  gradient: string;
+  href: string;
+  hasPage?: boolean;
+  features: string[];
+}
+
+export const services: Service[] = [
+  {
+    id: 'web-dev',
+    title: 'Web Development',
+    description: 'We build powerful, responsive web presences for customers — from landing pages to complex web applications.',
+    icon: '🌐',
+    color: '#2563EB',
+    gradient: '#2563EB',
+    href: '/services/web-development',
+    hasPage: true,
+    features: ['React / Next.js', 'CMS Integration', 'E-Commerce', 'SEO Optimized'],
+  },
+  {
+    id: 'mobile-app',
+    title: 'App Development',
+    description: 'High-quality mobile application development services for iOS and Android — built to delight users.',
+    icon: '📱',
+    color: '#0F766E',
+    gradient: '#0F766E',
+    href: '/services/app-development',
+    hasPage: true,
+    features: ['iOS & Android', 'React Native', 'Flutter', 'App Store Submission'],
+  },
+  {
+    id: 'desktop-app',
+    title: 'Desktop Application',
+    description: 'Custom software development for macOS and Windows, tailored to streamline your business operations.',
+    icon: '🖥️',
+    color: '#475569',
+    gradient: '#475569',
+    href: '/services/desktop-app',
+    hasPage: true,
+    features: ['Windows & macOS', 'Cross-platform', 'Electron.js', 'Performance Tuned'],
+  },
+  {
+    id: 'medical-billing',
+    title: 'Medical Billing',
+    description: 'Full-cycle medical billing solutions — from claim submission and denial management to revenue recovery.',
+    icon: '🏥',
+    color: '#0F766E',
+    gradient: '#0F766E',
+    href: '/services/medical-billing',
+    hasPage: true,
+    features: ['Claim Submission', 'Denial Management', 'Revenue Cycle', 'HIPAA Compliant'],
+  },
+  {
+    id: 'digital-marketing',
+    title: 'Digital Marketing',
+    description: 'Drive qualified leads and traffic to your website with data-driven digital marketing strategies.',
+    icon: '📈',
+    color: '#334155',
+    gradient: '#334155',
+    href: '/services/digital-marketing',
+    hasPage: true,
+    features: ['SEO / SEM', 'Social Media', 'Email Marketing', 'PPC Campaigns'],
+  },
+  {
+    id: 'graphic-design',
+    title: 'Graphic Design',
+    description: 'Compelling visual communication — logos, brand identity, UI design, and marketing materials.',
+    icon: '🎨',
+    color: '#475569',
+    gradient: '#475569',
+    href: '/services/graphic-design',
+    hasPage: true,
+    features: ['Brand Identity', 'Logo Design', 'UI/UX Design', 'Print & Digital'],
+  },
+  {
+    id: 'tech-support',
+    title: 'Technical Support',
+    description: 'Fast, structured IT support for applications, users, devices, and day-to-day business operations.',
+    icon: '🔧',
+    color: '#2563EB',
+    gradient: '#2563EB',
+    href: '/services/tech-support',
+    hasPage: true,
+    features: ['Help Desk Support', 'Application Support', 'Remote Troubleshooting', 'Issue Tracking'],
+  },
+  {
+    id: 'staffing',
+    title: 'Staffing Services',
+    description: 'Qualified technology and business support talent for contract, project, and permanent hiring needs.',
+    icon: '👥',
+    color: '#475569',
+    gradient: '#475569',
+    href: '/services/staffing',
+    hasPage: true,
+    features: ['IT Recruitment', 'Contract Staffing', 'Permanent Hiring', 'Screening & Onboarding'],
+  },
+  {
+    id: 'cloud',
+    title: 'Cloud Services',
+    description: 'Cloud migration, infrastructure setup, security, backups, and DevOps support for scalable systems.',
+    icon: '☁️',
+    color: '#0F766E',
+    gradient: '#0F766E',
+    href: '/services/cloud-services',
+    hasPage: true,
+    features: ['Cloud Migration', 'Infrastructure Setup', 'DevOps Support', 'Backup & Security'],
+  },
+  {
+    id: 'voice-support',
+    title: 'Voice Support',
+    description: 'Inbound and outbound voice process teams for customer care, follow-ups, verification, and support.',
+    icon: '🎙️',
+    color: '#334155',
+    gradient: '#334155',
+    href: '/services/voice-support',
+    hasPage: true,
+    features: ['Inbound Support', 'Outbound Calls', 'Customer Follow-ups', 'Call Reporting'],
+  },
+];

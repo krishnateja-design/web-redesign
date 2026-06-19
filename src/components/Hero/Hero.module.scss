@@ -1,0 +1,387 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/breakpoints' as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: radial-gradient(circle at 15% 5%, rgba(79,70,229,0.42), transparent 22%),
+    radial-gradient(circle at 90% 18%, rgba(14,165,233,0.24), transparent 18%),
+    radial-gradient(circle at 18% 78%, rgba(249,115,22,0.28), transparent 16%),
+    #071223;
+  overflow: hidden;
+  padding-top: 90px;
+  @include flex(column, stretch, flex-start);
+}
+
+// Background blobs
+.blob1,
+.blob2,
+.blob3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.92;
+  pointer-events: none;
+}
+
+.blob1 {
+  width: 680px;
+  height: 680px;
+  background: radial-gradient(circle, rgba(79,70,229,0.45) 0%, transparent 75%);
+  top: -140px;
+  left: -120px;
+  animation: blob 14s ease-in-out infinite;
+}
+
+.blob2 {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(6,182,212,0.35) 0%, transparent 72%);
+  top: 24%;
+  right: -120px;
+  animation: blob 16s ease-in-out infinite reverse;
+}
+
+.blob3 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(249,115,22,0.24) 0%, transparent 72%);
+  bottom: 8%;
+  left: 26%;
+  animation: blob 12s ease-in-out infinite 2s;
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.68;
+  pointer-events: none;
+}
+
+// Inner layout
+.inner {
+  @include flex(row, center, space-between, $space-12);
+  padding: $space-20 0 $space-12;
+  flex: 1;
+
+  @include max-lg {
+    flex-direction: column;
+    text-align: center;
+    padding: $space-12 0 $space-8;
+    gap: $space-8;
+  }
+}
+
+// Content
+.content {
+  flex: 1;
+  max-width: 560px;
+
+  @include max-lg { max-width: 100%; }
+}
+
+.eyebrow {
+  @include flex(row, center, flex-start, $space-2);
+  display: inline-flex;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: $radius-full;
+  padding: 0.375rem 1rem;
+  font-size: $text-xs;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: $space-5;
+  animation: fade-in-up 0.5s ease both;
+
+  @include max-lg { margin-left: auto; margin-right: auto; }
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $accent;
+  position: relative;
+  animation: pulse 2s ease-in-out infinite;
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(249,115,22,0.5); }
+    50%       { box-shadow: 0 0 0 6px rgba(249,115,22,0); }
+  }
+}
+
+.headline {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: $space-5;
+  letter-spacing: -0.03em;
+  animation: fade-in-up 0.5s ease 0.1s both;
+}
+
+.gradientText {
+  background: $grad-orange-pink;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtext {
+  font-size: $text-lg;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  margin-bottom: $space-8;
+  max-width: 480px;
+  animation: fade-in-up 0.5s ease 0.2s both;
+
+  @include max-lg { margin-left: auto; margin-right: auto; }
+}
+
+// CTAs
+.ctas {
+  @include flex(row, center, flex-start, $space-3);
+  margin-bottom: $space-8;
+  animation: fade-in-up 0.5s ease 0.3s both;
+
+  @include max-lg { justify-content: center; flex-wrap: wrap; }
+}
+
+.btnPrimary {
+  @include btn-primary;
+  padding: 0.875rem 1.75rem;
+  font-size: $text-base;
+}
+
+.btnOutline {
+  @include btn-ghost;
+  padding: 0.875rem 1.75rem;
+  font-size: $text-base;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+
+  &:hover {
+    background: rgba(255,255,255,0.18);
+  }
+}
+
+// Trust
+.trust {
+  @include flex(row, center, flex-start, $space-3);
+  animation: fade-in-up 0.5s ease 0.4s both;
+
+  @include max-lg { justify-content: center; }
+}
+
+.stars {
+  @include flex(row, center, flex-start, 0);
+  span {
+    color: #FBBF24;
+    font-size: $text-base;
+  }
+}
+
+.trustText {
+  font-size: $text-sm;
+  color: rgba(255,255,255,0.7);
+}
+
+// Visual / Mockup
+.visual {
+  flex: 1;
+  max-width: 520px;
+  position: relative;
+  animation: fade-in-up 0.6s ease 0.2s both;
+
+  @include max-lg { max-width: 100%; width: 100%; }
+}
+
+.mockup {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(26px);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  box-shadow: 0 32px 90px rgba(15,23,42,0.2);
+  transform: translateY(var(--mouse-y, 0)) translateX(calc(var(--mouse-x, 0) * -0.18));
+  transition: transform 0.12s ease-out, box-shadow 0.25s ease;
+  animation: float 6s ease-in-out infinite;
+
+  &:hover {
+    box-shadow: 0 38px 110px rgba(15,23,42,0.28);
+  }
+}
+
+.mockupBar {
+  @include flex(row, center, flex-start, 0.5rem);
+  padding: 0.9rem 1.15rem;
+  background: rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+
+  span {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    box-shadow: 0 0 18px rgba(255,255,255,0.08);
+    &:nth-child(1) { background: #FF5F57; }
+    &:nth-child(2) { background: #FEBC2E; }
+    &:nth-child(3) { background: #28C840; }
+  }
+}
+
+.mockupContent {
+  padding: 1.65rem;
+}
+
+.mockupChart {
+  margin-bottom: 1.25rem;
+}
+
+.chartBars {
+  @include flex(row, flex-end, space-between, 0.5rem);
+  height: 120px;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 0.5rem;
+}
+
+.bar {
+  flex: 1;
+  height: var(--h);
+  border-radius: 4px 4px 0 0;
+  background: $grad-purple-blue;
+  opacity: 0.8;
+  transition: opacity $transition-base;
+  &:hover { opacity: 1; }
+
+  &:nth-child(odd) {
+    background: $grad-cyan-purple;
+  }
+}
+
+.chartLabel {
+  font-size: $text-xs;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+}
+
+.mockupCards {
+  @include flex(column, stretch, flex-start, 0.625rem);
+}
+
+.mockupCard {
+  @include flex(row, center, flex-start, 0.75rem);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: $radius-md;
+  padding: 0.625rem 0.875rem;
+
+  strong {
+    display: block;
+    font-size: $text-sm;
+    font-weight: 700;
+    color: #fff;
+  }
+  small {
+    font-size: $text-xs;
+    color: rgba(255,255,255,0.45);
+  }
+}
+
+.cardIcon {
+  font-size: 1.25rem;
+}
+
+// Floating badges
+.badge {
+  position: absolute;
+  @include flex(row, center, flex-start, 0.5rem);
+  background: rgba(255,255,255,0.95);
+  border-radius: $radius-full;
+  padding: 0.65rem 1rem;
+  font-size: $text-xs;
+  font-weight: 700;
+  color: $text;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 20px 50px rgba(15,23,42,0.16);
+  white-space: nowrap;
+  animation: float 4.5s ease-in-out infinite;
+  transition: transform $transition-base, background $transition-base;
+
+  &:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,1);
+  }
+
+  span { font-size: 1rem; }
+}
+
+.badge1 {
+  top: -20px;
+  right: 18px;
+  animation-delay: 0s;
+}
+
+.badge2 {
+  bottom: 64px;
+  left: -16px;
+  animation-delay: 1.6s;
+}
+
+// Stats strip
+.statsStrip {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: $space-8 0;
+  background: rgba(255,255,255,0.03);
+}
+
+.statsGrid {
+  @include grid(4, $space-6);
+  @include max-md { grid-template-columns: repeat(2, 1fr); }
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statValue {
+  display: block;
+  font-family: $font-display;
+  font-size: $text-3xl;
+  font-weight: 900;
+  background: $grad-purple-blue;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.statLabel {
+  font-size: $text-sm;
+  color: rgba(255,255,255,0.5);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes blob {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  33%       { transform: scale(1.1) rotate(5deg); }
+  66%       { transform: scale(0.9) rotate(-5deg); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

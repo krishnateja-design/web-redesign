@@ -1,0 +1,125 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/breakpoints' as *;
+
+.section {
+  @include section-padding;
+  position: relative;
+  overflow: hidden;
+  background: $primary-dark;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background: #263c70;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  @include flex(row, center, space-between, $space-12);
+  flex-wrap: wrap;
+
+  @include max-lg {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.content { flex: 1; max-width: 540px; }
+
+.eyebrow {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: $radius-full;
+  padding: 0.25rem 0.875rem;
+  font-size: $text-xs;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: $space-4;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: $space-5;
+}
+
+.subtitle {
+  font-size: $text-lg;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  margin-bottom: $space-8;
+}
+
+.ctas {
+  @include flex(row, center, flex-start, $space-4);
+  flex-wrap: wrap;
+
+  @include max-lg { justify-content: center; }
+}
+
+.btnPrimary {
+  @include btn-base;
+  background: rgba(255,255,255,0.92);
+  color: $primary;
+  font-weight: 700;
+  padding: 0.875rem 1.75rem;
+  font-size: $text-base;
+  gap: $space-2;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+  }
+}
+
+.btnPhone {
+  @include btn-ghost;
+  padding: 0.875rem 1.5rem;
+  font-size: $text-base;
+}
+
+.badges {
+  @include flex(column, flex-start, flex-start, $space-4);
+
+  @include max-lg {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $space-3;
+  }
+}
+
+.badge {
+  @include flex(row, center, flex-start, $space-3);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: $radius-xl;
+  padding: 1rem 1.25rem;
+  min-width: 220px;
+
+  strong {
+    display: block;
+    font-size: $text-base;
+    font-weight: 700;
+    color: #fff;
+  }
+  small {
+    font-size: $text-xs;
+    color: rgba(255,255,255,0.5);
+  }
+}
+
+.badgeIcon {
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}

@@ -1,0 +1,74 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/breakpoints' as *;
+
+.section {
+  @include section-padding;
+  background:
+    radial-gradient(circle at 10% 12%, rgba(6,182,212,0.18), transparent 24rem),
+    linear-gradient(180deg, #F8FBFF 0%, #EEF7FF 100%);
+}
+
+.header { @include section-header; max-width: 600px; margin-left: auto; margin-right: auto; }
+.title { font-size: clamp(1.875rem, 4vw, 3rem); font-weight: 900; color: $text; margin-bottom: $space-4; letter-spacing: -0.02em; }
+.subtitle { font-size: $text-lg; color: #475569; line-height: 1.7; }
+
+.grid {
+  @include grid(3, $space-6);
+  margin-bottom: $space-10;
+  @include max-lg { grid-template-columns: repeat(2, 1fr); }
+  @include max-md { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: none;
+
+    .readMore {
+      color: $primary;
+    }
+
+    .cardTitle {
+      color: $primary;
+    }
+  }
+}
+.cardImage {
+  height: 185px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.cardBody {
+  padding: 1.25rem 1rem 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.meta { @include flex(row, center, space-between, $space-2); margin-bottom: 0.75rem; }
+.category { font-size: $text-xs; font-weight: 700; padding: 0.25rem 0.625rem; border-radius: $radius-full; }
+.readTime { font-size: $text-xs; color: $text-light; }
+.cardTitle { font-size: $text-lg; font-weight: 800; color: $text; line-height: 1.35; margin-bottom: 0.625rem; transition: color $transition-base; }
+.cardExcerpt { font-size: $text-sm; color: #475569; line-height: 1.7; flex: 1; margin-bottom: 1.25rem; }
+.cardFooter { @include flex(row, center, space-between); padding-top: 0.875rem; border-top: 1px solid rgba(79,70,229,0.22); }
+.date { font-size: $text-xs; color: $text-light; font-weight: 500; }
+.readMore { font-size: $text-xs; font-weight: 700; color: #475569; transition: color $transition-base; }
+.viewAll { text-align: center; }
+.viewAllBtn { @include btn-outline; padding: 0.875rem 2rem; font-size: $text-base; background: rgba(255,255,255,0.6); }
+
+.blogImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
