@@ -50,16 +50,37 @@ export default function Process() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.45 }}
         >
+          <motion.div
+            className={styles.processSignal}
+            initial={{ opacity: 0, scale: 0.94 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.4, delay: 0.08 }}
+          >
+            <span>Delivery Process</span>
+            <strong>01-04</strong>
+          </motion.div>
           <span className="section-eyebrow">How We Work</span>
           <h2 className={styles.title}>
-            A disciplined delivery process for serious digital products.
+            Our Process: from idea to launch.
           </h2>
           <p className={styles.subtitle}>
-            Strategy, design, engineering, and launch support stay connected from the first call to production.
+            A clear workflow keeps every project moving through discovery, design, development, and launch.
           </p>
         </motion.div>
 
         <div className={styles.timeline}>
+          <motion.div
+            className={styles.flowIntro}
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.4, delay: 0.12 }}
+          >
+            <span>Start</span>
+            <strong>Project Process Flow</strong>
+            <span>Launch</span>
+          </motion.div>
           <motion.div
             className={styles.connector}
             initial={{ scaleX: 0 }}
@@ -80,15 +101,18 @@ export default function Process() {
               transition={{ duration: 0.45, delay: i * 0.12, ease: 'easeOut' }}
               style={{ '--accent': step.color } as React.CSSProperties}
             >
-              <motion.span
-                className={styles.stepNumber}
-                initial={{ scale: 0.82, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: 0.12 + i * 0.1 }}
-              >
-                {step.number}
-              </motion.span>
+              <div className={styles.stepTop}>
+                <motion.span
+                  className={styles.stepNumber}
+                  initial={{ scale: 0.82, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: 0.12 + i * 0.1 }}
+                >
+                  {step.number}
+                </motion.span>
+                <span className={styles.stepLabel}>Process Step</span>
+              </div>
               <div className={styles.iconWrap}>
                 <Image src={step.image} alt="" width={160} height={112} aria-hidden />
               </div>
