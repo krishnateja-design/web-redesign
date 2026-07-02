@@ -52,17 +52,6 @@
   animation: blob 12s ease-in-out infinite 2s;
 }
 
-.gridOverlay {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 48px 48px;
-  opacity: 0.68;
-  pointer-events: none;
-}
-
 // Inner layout
 .inner {
   @include flex(row, center, space-between, $space-12);

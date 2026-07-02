@@ -1,0 +1,16 @@
+
+> proveit-catalysts-redesign@0.1.0 dev
+> next dev --port 3000
+
+▲ Next.js 16.2.10 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.88.20:3000
+✓ Ready in 878ms
+Creating turbopack project {
+  dir: 'C:\\Users\\conta\\OneDrive\\Desktop\\proveit-redesign',
+  testMode: true
+}
+
+○ Compiling / ...
+ GET / 200 in 5.7s (next.js: 5.2s, application-code: 446ms)
+ GET / 200 in 1061ms (next.js: 29ms, application-code: 1032ms)

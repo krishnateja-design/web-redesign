@@ -34,7 +34,6 @@ export default function Hero() {
       <div className={styles.blob1} />
       <div className={styles.blob2} />
       <div className={styles.blob3} />
-      <div className={styles.gridOverlay} />
 
       <div className={`container ${styles.inner}`}>
         <div className={styles.content}>
