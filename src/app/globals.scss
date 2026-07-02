@@ -1,7 +1,7 @@
-@use 'styles/variables' as *;
-@use 'styles/breakpoints' as *;
-@use 'styles/mixins' as *;
-@use 'styles/animations';
+@use '../styles/variables' as *;
+@use '../styles/breakpoints' as *;
+@use '../styles/mixins' as *;
+@use '../styles/animations';
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 

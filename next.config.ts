@@ -2,7 +2,12 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['www.proveitcatalysts.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.proveitcatalysts.com',
+      },
+    ],
     formats: ['image/avif', 'image/webp'],
   },
   sassOptions: {
