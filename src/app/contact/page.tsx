@@ -69,6 +69,7 @@ export default function ContactPage() {
                     <option>Cloud Services</option>
                     <option>Graphic Design</option>
                     <option>Technical Support</option>
+                    <option>Email Support</option>
                     <option>Other</option>
                   </select>
                 </div>

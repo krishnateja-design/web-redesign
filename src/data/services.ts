@@ -121,4 +121,15 @@ export const services: Service[] = [
     hasPage: true,
     features: ['Inbound Support', 'Outbound Calls', 'Customer Follow-ups', 'Call Reporting'],
   },
+  {
+    id: 'email-support',
+    title: 'Email Support',
+    description: 'Structured email support teams for customer queries, ticket handling, follow-ups, and response tracking.',
+    icon: '@',
+    color: '#2563EB',
+    gradient: '#2563EB',
+    href: '/services/email-support',
+    hasPage: true,
+    features: ['Inbox Management', 'Ticket Handling', 'Customer Follow-ups', 'Response Tracking'],
+  },
 ];

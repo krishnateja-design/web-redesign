@@ -51,14 +51,14 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact" style={{
+                <Link href={service.href} style={{
                   display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
                   padding: '0.625rem 1.25rem', borderRadius: '9999px',
                   background: service.gradient, color: '#fff',
                   fontSize: '0.875rem', fontWeight: 600, textDecoration: 'none',
                   marginTop: '0.5rem', width: 'fit-content'
                 }}>
-                  Get Started →
+                  View Service -&gt;
                 </Link>
               </div>
             ))}

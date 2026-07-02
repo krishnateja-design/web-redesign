@@ -107,6 +107,13 @@
   object-fit: contain;
 }
 
+.logoName {
+  color: #160a3d;
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: center;
+}
+
 @keyframes scrollLeft {
   from {
     transform: translateX(0);

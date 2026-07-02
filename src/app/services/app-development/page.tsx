@@ -1,20 +1,7 @@
-import Link from 'next/link';
+import ServiceSidebar from '@/components/ServiceSidebar/ServiceSidebar';
+import CTA from '@/components/CTA/CTA';
 
 export default function MobileAppDevelopmentPage() {
-  const services = [
-    'Website Development',
-    'Desktop App Development',
-    'Mobile App Development',
-    'Medical Billing Services',
-    'Digital Marketing',
-    'Graphic Design',
-    'Staffing Services',
-    'Technical Support',
-    'Voice Support',
-    'Email Support',
-    'Cloud Services',
-  ];
-
   return (
     <main>
      <section
@@ -101,73 +88,11 @@ export default function MobileAppDevelopmentPage() {
             </p>
           </div>
 
-          <aside>
-            <h3>Our Services</h3>
-
-            <ul style={{ listStyle: 'none', padding: 0 }}>
-              {services.map((service) => (
-                <li key={service} style={{ marginBottom: '16px' }}>
-                  ● {service}
-                </li>
-              ))}
-            </ul>
-          </aside>
+          <ServiceSidebar activeHref="/services/app-development" />
         </div>
       </section>
 
-    {/* Newsletter Section */}
-
-      <section
-    
-        style={{
-          background:
-            'linear-gradient(135deg, #7c4dff 0%, #5b3df5 100%)',
-          padding: '60px 0',
-          color: '#fff',
-        }}
-      >
-        <div
-          className="container"
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: '20px',
-            flexWrap: 'wrap',
-          }}
-        >
-          <div>
-            <h2>Let's Discuss</h2>
-            <p>Enter your email id for recent updates</p>
-          </div>
-
-          <div style={{ display: 'flex', gap: '10px' }}>
-            <input
-              type="email"
-              placeholder="Enter Email"
-              style={{
-                padding: '14px 20px',
-                borderRadius: '30px',
-                border: 'none',
-                minWidth: '280px',
-              }}
-            />
-
-            <button
-              style={{
-                background: '#00d084',
-                border: 'none',
-                color: '#fff',
-                padding: '14px 30px',
-                borderRadius: '30px',
-                cursor: 'pointer',
-              }}
-            >
-            Subscribe
-          </button>
-          </div>
-        </div>
-      </section>
+      <CTA />
     </main>
   );
 }

@@ -1,6 +1,11 @@
 import styles from './Portfolio.module.scss';
 
-const clients = [
+type Client = {
+  name: string;
+  logo?: string;
+};
+
+const clients: Client[] = [
   { name: 'Little Org', logo: '/images/littleorg-logo (1).png' },
   { name: 'Cukzz', logo: '/images/cukzz.png' },
   { name: 'Radiology Center Harding', logo: '/images/radiology.png' },
@@ -31,7 +36,7 @@ export default function Portfolio() {
         <div className={styles.track}>
           {[...clients, ...clients].map((client, index) => (
             <div className={styles.logoCard} key={`${client.name}-${index}`}>
-              {'logo' in client ? (
+              {client.logo ? (
                 <img src={client.logo} alt={client.name} />
               ) : (
                 <span className={styles.logoName}>{client.name}</span>

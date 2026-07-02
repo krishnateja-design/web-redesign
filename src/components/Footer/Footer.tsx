@@ -20,6 +20,7 @@ const serviceLinks = [
   { label: 'Medical Billing', href: '/services/medical-billing' },
   { label: 'Cloud Services', href: '/services/cloud-services' },
   { label: 'Technical Support', href: '/services/tech-support' },
+  { label: 'Email Support', href: '/services/email-support' },
 ];
 
 const social = [
