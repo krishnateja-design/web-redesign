@@ -7,6 +7,7 @@ import Features from '@/components/Features/Features';
 import Testimonials from '@/components/Testimonials/Testimonials';
 import Blog from '@/components/Blog/Blog';
 import CTA from '@/components/CTA/CTA';
+import HomePageMotionWrapper from '@/components/HomePageMotionWrapper';
 
 export const metadata: Metadata = {
   title: 'Web & Mobile Development Agency in Hyderabad | PRove IT Catalysts',
@@ -18,13 +19,27 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Process />
-      <Services />
-      <Portfolio />
-      <Features />
-      <Testimonials />
-      <Blog />
-      <CTA />
+      <HomePageMotionWrapper>
+        <Process />
+      </HomePageMotionWrapper>
+      <HomePageMotionWrapper delay={0.08}>
+        <Services />
+      </HomePageMotionWrapper>
+      <HomePageMotionWrapper delay={0.1}>
+        <Portfolio />
+      </HomePageMotionWrapper>
+      <HomePageMotionWrapper delay={0.12}>
+        <Features />
+      </HomePageMotionWrapper>
+      <HomePageMotionWrapper delay={0.14}>
+        <Testimonials />
+      </HomePageMotionWrapper>
+      <HomePageMotionWrapper delay={0.16}>
+        <Blog />
+      </HomePageMotionWrapper>
+      <HomePageMotionWrapper delay={0.18}>
+        <CTA />
+      </HomePageMotionWrapper>
     </>
   );
 }

@@ -15,15 +15,7 @@ const quickLinks = [
   { label: 'Contact', href: '/contact' },
 ];
 
-const serviceLinks = [
-  { label: 'Web Development', href: '/services/web-development' },
-  { label: 'Mobile App Development', href: '/services/app-development' },
-  { label: 'Digital Marketing', href: '/services/digital-marketing' },
-  { label: 'Medical Billing', href: '/services/medical-billing' },
-  { label: 'Cloud Services', href: '/services/cloud-services' },
-  { label: 'Technical Support', href: '/services/tech-support' },
-  { label: 'Email Support', href: '/services/email-support' },
-];
+
 
 const social = [
   { label: 'Facebook', href: 'https://www.facebook.com/PRoveitcatalysts/', icon: FaFacebookF },
@@ -120,18 +112,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Services */}
-            <div className={styles.col}>
-              <h4 className={styles.colTitle}>Services</h4>
-              <ul className={styles.colLinks}>
-                {serviceLinks.map((l) => (
-                  <li key={l.href}>
-                    <Link href={l.href} className={styles.colLink}>{l.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
+          
             {/* Contact & Newsletter */}
             <div className={styles.col}>
               <h4 className={styles.colTitle}>Contact</h4>

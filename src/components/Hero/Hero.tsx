@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import styles from './Hero.module.scss';
 
 const stats = [
@@ -9,6 +10,11 @@ const stats = [
   { value: '200+', label: 'Happy Clients' },
   { value: '8+', label: 'Years Experience' },
   { value: '99%', label: 'Satisfaction Rate' },
+];
+
+const headlineLines = [
+  ['Build', 'Digital', 'Products'],
+  ['That', 'Actually', 'Work'],
 ];
 
 export default function Hero() {
@@ -41,9 +47,35 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className={styles.headline}>
-            Build Digital Products
+            <span className={styles.headlineLine}>
+              {headlineLines[0].map((word, index) => (
+                <motion.span
+                  key={`hero-line-1-${word}`}
+                  className={styles.headlineWord}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.55, delay: 0.08 * index }}
+                >
+                  {word}
+                  {index < headlineLines[0].length - 1 ? ' ' : ''}
+                </motion.span>
+              ))}
+            </span>
             <br />
-            <span className={styles.gradientText}>That Actually Work</span>
+            <span className={styles.headlineLine}>
+              {headlineLines[1].map((word, index) => (
+                <motion.span
+                  key={`hero-line-2-${word}`}
+                  className={`${styles.headlineWord} ${styles.gradientText}`}
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.55, delay: 0.22 + 0.08 * index }}
+                >
+                  {word}
+                  {index < headlineLines[1].length - 1 ? ' ' : ''}
+                </motion.span>
+              ))}
+            </span>
           </h1>
 
           {/* Subtext */}
@@ -121,11 +153,26 @@ export default function Hero() {
       <div className={styles.statsStrip}>
         <div className="container">
           <div className={styles.statsGrid}>
-            {stats.map((s) => (
-              <div key={s.label} className={styles.statItem}>
-                <strong className={styles.statValue}>{s.value}</strong>
+            {stats.map((s, index) => (
+              <motion.div
+                key={s.label}
+                className={styles.statItem}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.35 }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+              >
+                <motion.strong
+                  className={styles.statValue}
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: false, amount: 0.35 }}
+                  transition={{ duration: 0.45, delay: 0.04 + index * 0.08 }}
+                >
+                  {s.value}
+                </motion.strong>
                 <span className={styles.statLabel}>{s.label}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './Features.module.scss';
 import {
   FaHeadset,
@@ -8,24 +9,28 @@ import {
 
 const features = [
   {
+    href: '/services/tech-support',
     icon: <FaHeadset size={40} />,
     title: 'Technical Support',
     description:
       'Our technical Support Services amass gives Technical Help, Application Help, and Item Determination Help',
   },
   {
+    href: '/services/voice-support',
     icon: <FaMicrophone size={40} />,
     title: 'Voice Support',
     description:
       'We change mark ideas into unmistakable entities through our Voice Process Services.',
   },
   {
+    href: '/services/staffing',
     icon: <FaUsers size={40} />,
     title: 'Staffing Services',
     description:
       'Our company specializes in providing skilled and qualified personnel to businesses and organizations of all sizes.',
   },
   {
+    href: '/services/cloud-services',
     icon: <FaCloud size={40} />,
     title: 'Cloud Services',
     description:
@@ -47,28 +52,30 @@ export default function Features() {
 
       <div className={styles.grid}>
         {features.map((f) => (
-          <div key={f.title} className={styles.card}>
-            <div className={styles.cardBody}>
-              <div className={styles.cardHeader}>
-                <div className={styles.iconWrap}>
-                  {f.icon}
+          <Link key={f.title} href={f.href} className={styles.cardLink}>
+            <div className={styles.card}>
+              <div className={styles.cardBody}>
+                <div className={styles.cardHeader}>
+                  <div className={styles.iconWrap}>
+                    {f.icon}
+                  </div>
+
+                  <h3 className={styles.cardTitle}>
+                    {f.title}
+                  </h3>
                 </div>
 
-                <h3 className={styles.cardTitle}>
-                  {f.title}
-                </h3>
+                <p className={styles.cardDesc}>
+                  {f.description}
+                </p>
               </div>
 
-              <p className={styles.cardDesc}>
-                {f.description}
-              </p>
+              <div className={styles.cardFooter}>
+                <span>Read More</span>
+                <span>→</span>
+              </div>
             </div>
-
-            <div className={styles.cardFooter}>
-              <span>Read More</span>
-              <span>...</span>
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
       </div>

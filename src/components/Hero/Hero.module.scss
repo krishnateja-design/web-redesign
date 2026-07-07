@@ -5,10 +5,10 @@
 .hero {
   position: relative;
   min-height: 100vh;
-  background: radial-gradient(circle at 15% 5%, rgba(79,70,229,0.42), transparent 22%),
-    radial-gradient(circle at 90% 18%, rgba(14,165,233,0.24), transparent 18%),
-    radial-gradient(circle at 18% 78%, rgba(249,115,22,0.28), transparent 16%),
-    #071223;
+  background: radial-gradient(circle at 15% 5%, rgba(31,91,255,0.28), transparent 24%),
+    radial-gradient(circle at 90% 18%, rgba(13,140,140,0.22), transparent 20%),
+    radial-gradient(circle at 18% 78%, rgba(79, 140, 255, 0.16), transparent 18%),
+    linear-gradient(135deg, #0F1E3A 0%, #173A6B 100%);
   overflow: hidden;
   padding-top: 90px;
   @include flex(column, stretch, flex-start);
@@ -28,7 +28,7 @@
 .blob1 {
   width: 680px;
   height: 680px;
-  background: radial-gradient(circle, rgba(79,70,229,0.45) 0%, transparent 75%);
+  background: radial-gradient(circle, rgba(31,91,255,0.35) 0%, transparent 75%);
   top: -140px;
   left: -120px;
   animation: blob 14s ease-in-out infinite;
@@ -37,7 +37,7 @@
 .blob2 {
   width: 520px;
   height: 520px;
-  background: radial-gradient(circle, rgba(6,182,212,0.35) 0%, transparent 72%);
+  background: radial-gradient(circle, rgba(13,140,140,0.32) 0%, transparent 72%);
   top: 24%;
   right: -120px;
   animation: blob 16s ease-in-out infinite reverse;
@@ -46,7 +46,7 @@
 .blob3 {
   width: 420px;
   height: 420px;
-  background: radial-gradient(circle, rgba(249,115,22,0.24) 0%, transparent 72%);
+  background: radial-gradient(circle, rgba(79,140,255,0.2) 0%, transparent 72%);
   bottom: 8%;
   left: 26%;
   animation: blob 12s ease-in-out infinite 2s;

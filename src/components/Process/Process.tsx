@@ -1,130 +1,77 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import styles from './Process.module.scss';
+import { motion } from "framer-motion";
+import styles from "./Process.module.scss";
 
 const steps = [
-  {
-    number: '01',
-    title: 'Discovery',
-    description: 'We clarify goals, users, scope, risks, and the fastest path to measurable value.',
-    outcome: 'Project roadmap',
-    image: '/images/process/discovery.svg',
-    color: '#2563EB',
-  },
-  {
-    number: '02',
-    title: 'Design',
-    description: 'We shape the interface, content flow, and core experience before development begins.',
-    outcome: 'Approved prototype',
-    image: '/images/process/design.svg',
-    color: '#0F766E',
-  },
-  {
-    number: '03',
-    title: 'Development',
-    description: 'We build in focused releases with clean code, QA checks, and performance tuning.',
-    outcome: 'Production build',
-    image: '/images/process/development.svg',
-    color: '#334155',
-  },
-  {
-    number: '04',
-    title: 'Launch',
-    description: 'We deploy, monitor, refine, and keep your team supported after go-live.',
-    outcome: 'Live product',
-    image: '/images/process/launch.svg',
-    color: '#F97316',
-  },
+  { number: "01", title: "Planning", description: "Make you different" },
+  { number: "02", title: "Development", description: "Make you different" },
+  { number: "03", title: "Launching", description: "Make you different" },
 ];
 
 export default function Process() {
   return (
     <section className={styles.section}>
-      <div className={`container ${styles.container}`}>
-        <motion.div
-          className={styles.header}
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.45 }}
-        >
+      <div className="container">
+        <div className={styles.processArea}>
           <motion.div
-            className={styles.processSignal}
-            initial={{ opacity: 0, scale: 0.94 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.4, delay: 0.08 }}
+            className={styles.intro}
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.25 }}
+            transition={{ duration: 0.55 }}
           >
-            <span>Delivery Process</span>
-            <strong>01-04</strong>
-          </motion.div>
-          <span className="section-eyebrow">How We Work</span>
-          <h2 className={styles.title}>
-            Our Process: from idea to launch.
-          </h2>
-          <p className={styles.subtitle}>
-            A clear workflow keeps every project moving through discovery, design, development, and launch.
-          </p>
-        </motion.div>
+            <span>IT&apos;S PERFECT WAY</span>
 
-        <div className={styles.timeline}>
-          <motion.div
-            className={styles.flowIntro}
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.4, delay: 0.12 }}
-          >
-            <span>Start</span>
-            <strong>Project Process Flow</strong>
-            <span>Launch</span>
-          </motion.div>
-          <motion.div
-            className={styles.connector}
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.85, ease: 'easeOut', delay: 0.15 }}
-          />
+            <h2>
+              How Does PRove IT <br />
+              Catalysts Works
+            </h2>
 
-          <div className={styles.steps}>
-            {steps.map((step, i) => (
-            <motion.div
-              key={step.number}
-              className={styles.stepCard}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -10 }}
-              viewport={{ once: true, amount: 0.28 }}
-              transition={{ duration: 0.45, delay: i * 0.12, ease: 'easeOut' }}
-              style={{ '--accent': step.color } as React.CSSProperties}
-            >
-              <div className={styles.stepTop}>
-                <motion.span
-                  className={styles.stepNumber}
-                  initial={{ scale: 0.82, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: 0.12 + i * 0.1 }}
-                >
-                  {step.number}
-                </motion.span>
-                <span className={styles.stepLabel}>Process Step</span>
-              </div>
-              <div className={styles.iconWrap}>
-                <Image src={step.image} alt="" width={160} height={112} aria-hidden />
-              </div>
-              <div className={styles.copy}>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </div>
-              <div className={styles.outcome}>
-                <span>Output</span>
-                <strong>{step.outcome}</strong>
-              </div>
-            </motion.div>
+            <p>
+              We follow a smooth and clear process from planning to launch,
+              helping your business grow with quality and confidence.
+            </p>
+
+            <a href="/contact" className={styles.button}>
+              Get Started
+            </a>
+          </motion.div>
+
+          <div className={styles.roadmap}>
+            <svg className={styles.lineSvg} viewBox="0 0 980 340" fill="none">
+              <motion.path
+                d="M20 220 C110 270 175 270 250 210 C325 150 400 155 475 175 C565 200 610 125 700 85 C780 50 850 55 950 75"
+                stroke="#1687c7"
+                strokeWidth="5"
+                strokeDasharray="2 14"
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+              />
+            </svg>
+
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.number}
+                className={`${styles.step} ${styles[`step${index + 1}`]}`}
+                initial={{ opacity: 0, y: 26 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.45, delay: index * 0.18 }}
+              >
+                <span className={styles.dot} />
+                <span className={styles.bigNumber}>{step.number}</span>
+
+                <div className={styles.stepText}>
+                  <h3>
+                    {step.number}. {step.title}
+                  </h3>
+                  <p>{step.description}</p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
